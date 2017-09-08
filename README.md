@@ -1,12 +1,12 @@
-# webduino-module-ev3bt
+# webduino-module-wabot
 
-Webduino Module for EV3BT.
+Webduino Module for WABot.
 
 
 ## Installation
 
 ```shell
-bower install https://github.com/webduinoio/webduino-module-ev3bt.git
+bower install https://github.com/webduinoio/webduino-module-wabot.git
 ```
 
 ## License
