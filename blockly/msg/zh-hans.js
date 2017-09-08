@@ -1,0 +1,1 @@
+MSG.catwabot = "瓦寶機器人";

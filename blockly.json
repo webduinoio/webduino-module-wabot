@@ -1,0 +1,15 @@
+{
+    "types": ["wabot_new", "wabot_step","wabot_backyard","wabot_turn","wabot_action","wabot_tempo"],
+    "category": "catMenu3",
+    "scripts": [
+        "blockly/blocks.js",
+        "blockly/javascript.js"
+    ],
+    "dependencies": [
+        "wabot.js",
+        "wabot-blockly.js"
+    ],
+    "msg": "blockly/msg",
+    "blocksMsg": "blockly/msg/blocks",
+    "toolbox": "blockly/toolbox.xml"
+}
