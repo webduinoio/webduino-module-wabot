@@ -43,6 +43,14 @@
         }
     });
 
+    proto.servo = function(n, pos, callback) {
+        this.callback['servo'] = callback;
+        var a1 = (pos & 0xf0) >> 4,
+            a2 = (pos & 0x0f);
+        var cmd = [0xF0, 0x04, SENSOR_WABOT, 0x20, n, a1, a2, 0xF7];
+        this._board.send(cmd);
+    }
+
     proto.standard = function(step, callback) {
         this.callback['standard'] = callback;
         var cmd = [0xF0, 0x04, SENSOR_WABOT, 0x01, 0, 0xF7];

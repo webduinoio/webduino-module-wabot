@@ -41,4 +41,11 @@
       </block>
     </value>
   </block>
+  <block type="wabot_servo">
+    <value name="servo">
+      <block type="math_number">
+        <field name="NUM">90</field>
+      </block>
+    </value>
+  </block>
 </category>

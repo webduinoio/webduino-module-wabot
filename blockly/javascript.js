@@ -11,6 +11,14 @@ Blockly.JavaScript['wabot_walk'] = function(block) {
     return code;
 };
 
+Blockly.JavaScript['wabot_servo'] = function(block) {
+    var variable_ = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('wabot'), Blockly.Variables.NAME_TYPE);
+    var dropdown_n = block.getFieldValue('n');
+    var value_servo = Blockly.JavaScript.valueToCode(block, 'servo', Blockly.JavaScript.ORDER_ATOMIC);
+    var code = variable_ + '.servo(' + dropdown_n + ',' + value_servo + ',function(){});\n';
+    return code;
+};
+
 Blockly.JavaScript['wabot_step'] = function(block) {
     var variable_ = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('wabot'), Blockly.Variables.NAME_TYPE);
     var dropdown_step = block.getFieldValue('step');

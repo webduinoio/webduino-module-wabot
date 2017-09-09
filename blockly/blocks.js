@@ -10,6 +10,29 @@ Blockly.Blocks['wabot_new'] = {
 };
 
 
+Blockly.Blocks['wabot_servo'] = {
+    init: function() {
+        this.appendValueInput("servo")
+            .setCheck(null)
+            .appendField(new Blockly.FieldVariable("wabot"), "wabot")
+            .appendField("設定")
+            .appendField(new Blockly.FieldDropdown([
+                ["右足", "0"],
+                ["左足", "1"],
+                ["右腿", "2"],
+                ["左腿", "3"],
+                ["左手", "4"],
+                ["右手", "5"]
+            ]), "n");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(65);
+        this.setTooltip('');
+        this.setHelpUrl('https://webduino.io');
+    }
+};
+
+
 Blockly.Blocks['wabot_step'] = {
     init: function() {
         this.appendValueInput("step")
