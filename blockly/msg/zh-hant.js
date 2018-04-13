@@ -1,1 +1,1 @@
-MSG.catwabot = "瓦寶機器人";
+MSG.catwabots = "哇寶機器人s";

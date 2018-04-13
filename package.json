@@ -1,8 +1,8 @@
 {
-  "name": "webduino-module-wabot",
+  "name": "webduino-module-wabots",
   "version": "1.0.0",
-  "description": "WABot Module for Webduino",
-  "main": "wabot.js",
+  "description": "WABots Module for Webduino",
+  "main": "wabots.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,7 +11,7 @@
   "keywords": [
     "arduino",
     "webduino",
-    "wabot"
+    "wabots"
   ],
   "dependencies": {
     "webduino-js": "0.x"
