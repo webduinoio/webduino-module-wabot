@@ -1,3 +1,3 @@
 // waBot
-Blockly.Msg.WEBDUINO_WABOTS = "哇寶機器人";
-Blockly.Msg.WEBDUINO_WABOTS_WALK = "往前走 ";
+Blockly.Msg.WEBDUINO_WABOT = "哇寶機器人";
+Blockly.Msg.WEBDUINO_WABOT_WALK = "往前走 ";

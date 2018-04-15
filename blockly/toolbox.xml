@@ -1,29 +1,27 @@
-<category id="catwabots" tags="fly,mark1,smart">
+<category id="catwabot" tags="fly,mark1,smart">
   <block type="variables_set">
-    <field name="VAR">wabots</field>
+    <field name="VAR">wabot</field>
     <value name="VALUE">
-      <block type="wabots_new">
+      <block type="wabot_new">
       </block>
     </value>
   </block>
-  <block type="wabots_basic_action">
+  <block type="wabot_basic_action">
   </block>
-  <block type="wabots_tempo">
+  <block type="wabot_tempo">
   </block>
-  <block type="wabots_status">
-    <value name="step">
-    </value>
+  <block type="wabot_status">
   </block>
-  <block type="wabots_angle">
+  <block type="wabot_angle">
     <value name="angle">
       <block type="math_number">
         <field name="NUM">90</field>
       </block>
     </value>
   </block>
-  <block type="wabots_angle_tool">
+  <block type="wabot_angle_tool">
   </block>
-  <block type="wabots_stop">
+  <block type="wabot_stop">
   </block>
 
 </category>

@@ -1,13 +1,13 @@
 {
-    "types": ["wabots_new", "wabots_basic_action","wabots_status","wabots_tempo", "wabots_stop"],
-    "category": "catMenu0",
+    "types": ["wabot_new", "wabot_basic_action","wabot_status","wabot_tempo", "wabot_stop"],
+    "category": "catMenu5",
     "scripts": [
         "blockly/blocks.js",
         "blockly/javascript.js"
     ],
     "dependencies": [
-        "wabots.js",
-        "wabots-blockly.js"
+        "wabot.js",
+        "wabot-blockly.js"
     ],
     "msg": "blockly/msg",
     "blocksMsg": "blockly/msg/blocks",

@@ -1,7 +1,7 @@
-Blockly.Blocks['wabots_new'] = {
+Blockly.Blocks['wabot_new'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(Blockly.Msg.WEBDUINO_WABOTS, "哇寶機器人");
+            .appendField(Blockly.Msg.WEBDUINO_WABOT, "哇寶機器人");
         this.setOutput(true);
         this.setColour(230);
         this.setTooltip('');
@@ -9,10 +9,10 @@ Blockly.Blocks['wabots_new'] = {
     }
 };
 
-Blockly.Blocks['wabots_basic_action'] = {
+Blockly.Blocks['wabot_basic_action'] = {
     init: function() {
         this.appendDummyInput()
-        .appendField(new Blockly.FieldVariable("wabots"), "wabots")
+        .appendField(new Blockly.FieldVariable("wabot"), "wabot")
         .appendField("動作")
         .appendField(new Blockly.FieldDropdown(
             [
@@ -32,15 +32,15 @@ Blockly.Blocks['wabots_basic_action'] = {
     }
 };
 
-Blockly.Blocks['wabots_tempo'] = {
+Blockly.Blocks['wabot_tempo'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldVariable("wabots"), "wabots")
+            .appendField(new Blockly.FieldVariable("wabot"), "wabot")
             .appendField("動作")
             .appendField(new Blockly.FieldDropdown(
                 [
                     ["裝可愛", "swing"],
-                    ["上下跳動", "upDown"],
+                    // ["上下跳動", "upDown"],
                     ["快樂向前", "flapping"],
                     ["玻璃舞", "crusaito"],
                     ["跑步", "run"]
@@ -53,10 +53,10 @@ Blockly.Blocks['wabots_tempo'] = {
     }
 };
 
-Blockly.Blocks['wabots_status'] = {
+Blockly.Blocks['wabot_status'] = {
     init: function() {
         this.appendDummyInput()
-        .appendField(new Blockly.FieldVariable("wabots"), "wabots")
+        .appendField(new Blockly.FieldVariable("wabot"), "wabot")
         .appendField("動作")
         .appendField(new Blockly.FieldDropdown(
             [
@@ -76,10 +76,10 @@ Blockly.Blocks['wabots_status'] = {
     }
 };
 
-Blockly.Blocks['wabots_angle'] = {
+Blockly.Blocks['wabot_angle'] = {
     init: function() {
         this.appendValueInput("angle")
-        .appendField(new Blockly.FieldVariable("wabots"), "wabots")
+        .appendField(new Blockly.FieldVariable("wabot"), "wabot")
         .appendField("設定")
         .appendField(new Blockly.FieldDropdown(
             [
@@ -100,10 +100,10 @@ Blockly.Blocks['wabots_angle'] = {
     }
 };
 
-Blockly.Blocks['wabots_angle_tool'] = {
+Blockly.Blocks['wabot_angle_tool'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField(new Blockly.FieldVariable("wabots"), "wabots")
+            .appendField(new Blockly.FieldVariable("wabot"), "wabot")
             .appendField("設定")
             .appendField(new Blockly.FieldDropdown(
             [
@@ -124,10 +124,10 @@ Blockly.Blocks['wabots_angle_tool'] = {
     }
 };
 
-Blockly.Blocks['wabots_stop'] = {
+Blockly.Blocks['wabot_stop'] = {
     init: function() {
         this.appendDummyInput()
-          .appendField(new Blockly.FieldVariable("wabots"), "wabots")
+          .appendField(new Blockly.FieldVariable("wabot"), "wabot")
           .appendField("停止動作");
         this.setColour(65);
         this.setPreviousStatement(true, null);

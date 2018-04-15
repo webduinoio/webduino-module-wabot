@@ -6,7 +6,7 @@
     }
 }(function(scope) {
     'use strict';
-    var SENSOR_WABOTs = 0x2A;
+    var SENSOR_WABOT = 0x2A;
     var self;
     var proto;
     var Module = scope.Module;
@@ -19,36 +19,36 @@
         0x5, //turnLeft
         0x6, //turnRight
         0x7, //backyard
-        0x8, //swing
-        0x9, //upDown
-        0xA, //flapping
-        0xB, //crusaito
-        0xC, //run
+        0x8, //run
+        0x9, //swing
+        0xA, //upDown
+        0xB, //flapping
+        0xC, //crusaito
         0xD, //standard
         0xE, //kickLeft
         0xF, //kickRight
-        0x11,//goingUp
-        0x12,//noGravity
-        0x13,//drunk
-        0x14,//dance
-        0x15,//stop
-        0x20 //setAngle
+        0x10,//goingUp
+        0x11,//noGravity
+        0x12,//drunk
+        0x13,//dance
+        0x14,//stop
+        0x15 //servo
     ];
-    function wabots(board, rx, tx) {
-        console.log('wabots');
+    function wabot(board, rx, tx) {
+        console.log('wabot');
         Module.call(this);
         this._board = board;
         this._time = [];
         self = this;
         self.callback = {};
-        board.send([0xF0, 0x04, SENSOR_WABOTs, action[0xD] /*standard*/ , 0xF7]);
+        board.send([0xF0, 0x04, SENSOR_WABOT, action[0xD] /*standard*/ , 0xF7]);
         board.on(webduino.BoardEvent.SYSEX_MESSAGE, function(event) {
             var m = event.message;
-            if (m[0] == 0x04 && m[1] == SENSOR_WABOTs) {
+            if (m[0] == 0x04 && m[1] == SENSOR_WABOT) {
                 var callbackType = m[2];
                 switch (callbackType) {
                     case 0:
-                        console.log("waBots create OK");
+                        console.log("waBot create OK");
                         break;
                         /*walk done*/
                     // case 2:
@@ -62,16 +62,16 @@
         });
     }
 
-    wabots.prototype = proto = Object.create(Module.prototype, {
+    wabot.prototype = proto = Object.create(Module.prototype, {
         constructor: {
-            value: wabots
+            value: wabot
         }
     });
 
     proto.walk = function(step = 0, callback) {
         if(this._status != action[1]){
             this.callback['walk'] = callback;
-            var cmd = [0xF0, 0x04, SENSOR_WABOTs, action[1], step, 0xF7];
+            var cmd = [0xF0, 0x04, SENSOR_WABOT, action[1], step, 0xF7];
             this._board.send(cmd);
             if(typeof(callback) == 'function'){
                 callback();
@@ -82,7 +82,7 @@
     proto.goBack = function(step = 0, callback) {
         if(this._status != action[2]){
             this.callback['goBack'] = callback;
-            var cmd = [0xF0, 0x04, SENSOR_WABOTs, action[2], step, 0xF7];
+            var cmd = [0xF0, 0x04, SENSOR_WABOT, action[2], step, 0xF7];
             this._board.send(cmd);
             if(typeof(callback) == 'function'){
                 callback();
@@ -93,7 +93,7 @@
     proto.moonWalkLeft = function(step = 0, callback) {
         if(this._status != action[3]){
             this.callback['moonWalkLeft'] = callback;
-            var cmd = [0xF0, 0x04, SENSOR_WABOTs, action[3], step, 0xF7];
+            var cmd = [0xF0, 0x04, SENSOR_WABOT, action[3], step, 0xF7];
             this._board.send(cmd);
             if(typeof(callback) == 'function'){
                 callback();
@@ -104,7 +104,7 @@
     proto.moonWalkRight = function(step = 0, callback) {
         if(this._status != action[4]){
             this.callback['moonWalkRight'] = callback;
-            var cmd = [0xF0, 0x04, SENSOR_WABOTs, action[4], step, 0xF7];
+            var cmd = [0xF0, 0x04, SENSOR_WABOT, action[4], step, 0xF7];
             this._board.send(cmd);
             if(typeof(callback) == 'function'){
                 callback();
@@ -115,7 +115,7 @@
     proto.turnLeft = function(step = 0, callback) {
         if(this._status != action[5]){
             this.callback['turnLeft'] = callback;
-            var cmd = [0xF0, 0x04, SENSOR_WABOTs, action[5], step, 0xF7];
+            var cmd = [0xF0, 0x04, SENSOR_WABOT, action[5], step, 0xF7];
             this._board.send(cmd);
             if(typeof(callback) == 'function'){
                 callback();
@@ -126,7 +126,7 @@
     proto.turnRight = function(step = 0, callback) {
         if(this._status != action[6]){
             this.callback['turnRight'] = callback;
-            var cmd = [0xF0, 0x04, SENSOR_WABOTs, action[6], step, 0xF7];
+            var cmd = [0xF0, 0x04, SENSOR_WABOT, action[6], step, 0xF7];
             this._board.send(cmd);
             if(typeof(callback) == 'function'){
                 callback();
@@ -137,7 +137,7 @@
     proto.backyard = function(step = 0, callback) {
         if(this._status != action[7]){
             this.callback['backyard'] = callback;
-            var cmd = [0xF0, 0x04, SENSOR_WABOTs, action[7], step, 0xF7];
+            var cmd = [0xF0, 0x04, SENSOR_WABOT, action[7], step, 0xF7];
             this._board.send(cmd);
             if(typeof(callback) == 'function'){
                 callback();
@@ -145,10 +145,10 @@
         }
         this._status = action[7];
     }
-    proto.swing = function(step, callback) {
+    proto.run = function(step, callback) {
         if(this._status != action[8]){
             this.callback['swing'] = callback;
-            var cmd = [0xF0, 0x04, SENSOR_WABOTs, action[8], step, 0xF7];
+            var cmd = [0xF0, 0x04, SENSOR_WABOT, action[8], step, 0xF7];
             this._board.send(cmd);
             if(typeof(callback) == 'function'){
                 callback();
@@ -156,10 +156,10 @@
         }
         this._status = action[8];
     }
-    proto.upDown = function(step, callback) {
+    proto.swing = function(step, callback) {
         if(this._status != action[9]){
-            this.callback['upDown'] = callback;
-            var cmd = [0xF0, 0x04, SENSOR_WABOTs, action[9], step, 0xF7];
+            this.callback['run'] = callback;
+            var cmd = [0xF0, 0x04, SENSOR_WABOT, action[9], step, 0xF7];
             this._board.send(cmd);
             if(typeof(callback) == 'function'){
                 callback();
@@ -167,10 +167,10 @@
         }
         this._status = action[9];
     }
-    proto.flapping = function(step, callback) {
+    proto.upDown = function(step, callback) {
         if(this._status != action[0xA]){
-            this.callback['swing'] = callback;
-            var cmd = [0xF0, 0x04, SENSOR_WABOTs, action[0xA], step, 0xF7];
+            this.callback['upDown'] = callback;
+            var cmd = [0xF0, 0x04, SENSOR_WABOT, action[0xA], step, 0xF7];
             this._board.send(cmd);
             if(typeof(callback) == 'function'){
                 callback();
@@ -178,83 +178,82 @@
         }
         this._status = action[0xA];
     }
-    proto.crusaito = function(step, callback) {
+    proto.flapping = function(step, callback) {
         if(this._status != action[0xB]){
-            this.callback['crusaito'] = callback;
-            var cmd = [0xF0, 0x04, SENSOR_WABOTs, action[0xB], step, 0xF7];
+            this.callback['swing'] = callback;
+            var cmd = [0xF0, 0x04, SENSOR_WABOT, action[0xB], step, 0xF7];
             this._board.send(cmd);
             if(typeof(callback) == 'function'){
                 callback();
             }
         }
         this._status = action[0xB];
-    }   
-    proto.run = function(step, callback) {
+    }
+    proto.crusaito = function(step, callback) {
         if(this._status != action[0xC]){
-            this.callback['run'] = callback;
-            var cmd = [0xF0, 0x04, SENSOR_WABOTs, action[0xC], step, 0xF7];
+            this.callback['crusaito'] = callback;
+            var cmd = [0xF0, 0x04, SENSOR_WABOT, action[0xC], step, 0xF7];
             this._board.send(cmd);
             if(typeof(callback) == 'function'){
                 callback();
             }
         }
         this._status = action[0xC];
-    }
+    }   
+    
     proto.standard = function(step, callback) {
         this.callback['standard'] = callback;
-        var cmd = [0xF0, 0x04, SENSOR_WABOTs, 0xD, 0, 0xF7];
+        var cmd = [0xF0, 0x04, SENSOR_WABOT, action[0xD], 0xF7];
         this._board.send(cmd);
     }
     proto.kickLeft = function(tempo, callback) {
         this.callback['kickLeft'] = callback;
-        var cmd = [0xF0, 0x04, SENSOR_WABOTs, 0x0E, tempo, 0xF7];
+        var cmd = [0xF0, 0x04, SENSOR_WABOT, action[0xE], tempo, 0xF7];
         this._board.send(cmd);
     }
     proto.kickRight = function(tempo, callback) {
         this.callback['kickRight'] = callback;
-        var cmd = [0xF0, 0x04, SENSOR_WABOTs, 0xF, tempo, 0xF7];
+        var cmd = [0xF0, 0x04, SENSOR_WABOT, action[0xF], tempo, 0xF7];
         this._board.send(cmd);
     }
     proto.goingUp = function(tempo, callback) {
         this.callback['goingUp'] = callback;
-        var cmd = [0xF0, 0x04, SENSOR_WABOTs, action[0x11], tempo, 0xF7];
+        var cmd = [0xF0, 0x04, SENSOR_WABOT, action[0x10], tempo, 0xF7];
         this._board.send(cmd);
     }
     proto.noGravity = function(tempo, callback) {
         this.callback['noGravity'] = callback;
-        var cmd = [0xF0, 0x04, SENSOR_WABOTs, action[0x12], tempo, 0xF7];
+        var cmd = [0xF0, 0x04, SENSOR_WABOT, action[0x11], tempo, 0xF7];
         this._board.send(cmd);
     }
     proto.drunk = function(tempo, callback) {
         this.callback['drunk'] = callback;
-        var cmd = [0xF0, 0x04, SENSOR_WABOTs, action[0x13], 1000, 0xF7];
+        var cmd = [0xF0, 0x04, SENSOR_WABOT, action[0x12], tempo, 0xF7];
         this._board.send(cmd);
     }
     proto.dance = function(step, callback) {
         this.callback['dance'] = callback;
-        var cmd = [0xF0, 0x04, SENSOR_WABOTs, action[0x14], 0, 0xF7];
+        var cmd = [0xF0, 0x04, SENSOR_WABOT, action[0x13], 0xF7];
         this._board.send(cmd);
     }
     proto.stop = function(callback) {
-        if(this._status != action[0x20]){
+        if(this._status != action[0x14]){
             this.callback['stop'] = callback;
-            var cmd = [0xF0, 0x04, SENSOR_WABOTs, action[0x20], 0xF7];
+            var cmd = [0xF0, 0x04, SENSOR_WABOT, action[0x14], 0xF7];
             this._board.send(cmd);
             if(typeof(callback) == 'function'){
                 callback();
             }   
         }
-        this._status = action[0x15]
+        this._status = action[0x14]
     }
-    proto.servo = function(num, angle, callback){
-        if(angle >= 0 && angle <= 180){
-            var cmd = [0xF0, 0x04, SENSOR_WABOTs, action[0x20], num, angle, 0xF7];
-            this._board.send(cmd);
-            if(typeof(callback) == "function"){
-                callback();
-            }
-        }     
+    proto.servo = function(n, pos, callback) {
+        this.callback['servo'] = callback;
+        var a1 = (pos & 0xf0) >> 4,
+            a2 = (pos & 0x0f);
+        var cmd = [0xF0, 0x04, SENSOR_WABOT, action[0x15], n, a1, a2, 0xF7];
+        this._board.send(cmd);
     }
 
-    scope.module.wabots = wabots;
+    scope.module.wabot = wabot;
 }));
