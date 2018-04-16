@@ -6,46 +6,21 @@
       </block>
     </value>
   </block>
-  <block type="wabot_step">
-    <value name="step">
-      <block type="math_number">
-        <field name="NUM">1</field>
-      </block>
-    </value>
-  </block>
-  <block type="wabot_backyard">
-    <value name="step">
-      <block type="math_number">
-        <field name="NUM">4</field>
-      </block>
-    </value>
-  </block>
-  <block type="wabot_turn">
-    <value name="step">
-      <block type="math_number">
-        <field name="NUM">3</field>
-      </block>
-    </value>
-  </block>
-  <block type="wabot_action">
-    <value name="step">
-      <block type="math_number">
-        <field name="NUM">1</field>
-      </block>
-    </value>
+  <block type="wabot_basic_action">
   </block>
   <block type="wabot_tempo">
-    <value name="step">
-      <block type="math_number">
-        <field name="NUM">1</field>
-      </block>
-    </value>
   </block>
-  <block type="wabot_servo">
-    <value name="servo">
+  <block type="wabot_status">
+  </block>
+  <block type="wabot_angle">
+    <value name="angle">
       <block type="math_number">
         <field name="NUM">90</field>
       </block>
     </value>
+  </block>
+  <block type="wabot_angle_tool">
+  </block>
+  <block type="wabot_stop">
   </block>
 </category>

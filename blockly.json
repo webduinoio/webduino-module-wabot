@@ -1,5 +1,5 @@
 {
-    "types": ["wabot_new", "wabot_step", "wabot_backyard", "wabot_turn", "wabot_action", "wabot_tempo", "wabot_servo"],
+    "types": ["wabot_new", "wabot_basic_action","wabot_status","wabot_tempo", "wabot_stop"],
     "category": "catMenu5",
     "scripts": [
         "blockly/blocks.js",
